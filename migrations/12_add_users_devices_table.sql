@@ -1,0 +1,3 @@
+CREATE TABLE `1eq-demo`.`users_devices` ( `id` INT NOT NULL AUTO_INCREMENT, `user_id` INT UNSIGNED NOT NULL , `device_token` VARCHAR(64) NOT NULL , PRIMARY KEY (`id`) , INDEX (`user_id`) ) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE `users_devices` ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `1eq-demo`.`users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;

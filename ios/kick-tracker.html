@@ -1,0 +1,39 @@
+<ion-view title="Kick Tracker" hide-back-button="true">
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content padding="true" has-bouncing="true">
+    <div class="mainContent"></div>
+      <!-- <h2>Kick Tracker</h2> -->
+      <p class="ng-hide" ng-show="numKicks < 10">Click on the button below each time you feel the baby move. We'll count up to 10 movements.</p>
+      <p class="ng-hide" ng-show="numKicks >= 10">Excellent! We've reached 10 kicks in less than 2 hours. Things are looking great for you and your baby! Please wait at least two hours before tracking your baby's kicks again.</p>
+      <h2 ng-bind-template="There {{ numKicks == 1 ? 'has' : 'have' }} been {{ numKicks ? numKicks : 0 }} {{ numKicks == 1 ? 'kick' : 'kicks' }} in the past two hours!"></h2>
+      <div class="completion-buttons">
+        <button class="button button-block button-gray icon-right ion-plus-round"
+                ng-click="createKick()"
+                ng-show="hasKickButton()"
+                type="submit"
+                id="kick-button">
+          <h2>Add Kick!</h2>
+        </button>
+        <button class="button button-block button-primary icon-right ion-minus-round"
+                ng-click="resetKicks()"
+                ng-show="hasReset()"
+                type="submit"
+                id="reset-kicks-button">
+          <h2>Reset Kicks</h2>
+        </button>
+        <button class="button button-block button-primary icon-right ion-ios7-checkmark-outline"
+                ng-click="completeAction()"
+                ng-show="hasMoveButton()"
+                type="submit"
+                id="reset-kicks-button">
+          <h2>Did It</h2>
+        </button>
+      </div>
+
+  </ion-content>
+
+</ion-view>
